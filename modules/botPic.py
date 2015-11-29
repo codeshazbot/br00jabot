@@ -10,7 +10,5 @@ def getRandomPic():
     for submission in r.get_subreddit('lolcats').get_new(limit=25):
         temp.append(submission.url)
     return temp[randomPic]
-
-# TODO: El Bot necesita una imagen(.jpg .png) para
-# enviarla en el chat no una URL de la imagen.
-# Buscar la forma cargar y guardar la imagen desde la URL.
+    
+# bot loads a link and telegram takes care of loading the preview so it's fine
