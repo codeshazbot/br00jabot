@@ -133,10 +133,9 @@ class WebhookHandler(webapp2.RequestHandler):
 
         # CUSTOM MESSAGES AND FALLBACK ERROR MESSAGES
 
-        elif 'no leer' in text:
+        elif 'no leer' in text: #Erased "else" in order to prevent reply loop
             reply('Los creadores de este bot claramente no saben que es leer')
-        else:
-            reply('El bot no entiende que carajo estas diciendo broder')
+        
 
 app = webapp2.WSGIApplication([
     ('/me', MeHandler),
