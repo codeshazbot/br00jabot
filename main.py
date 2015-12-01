@@ -18,7 +18,7 @@ TOKEN = ''
 
 BASE_URL = 'https://api.telegram.org/bot' + TOKEN + '/'
 
-VERSION = 'La version de este bot es: 0.420'
+VERSION = '0.420'
 # ================================
 
 class EnableStatus(ndb.Model):
@@ -122,7 +122,7 @@ class WebhookHandler(webapp2.RequestHandler):
                 img.save(output, 'JPEG')
                 reply(img=output.getvalue())
             elif text == '/quelacreo':
-                reply(VERSION) #Revisar, no esta mostrando la version
+                reply('La version de este bot es ', VERSION) #Revisar, no esta mostrando la version
             elif text == '/help':
                 reply ('Buena nueva! Movi el culo y coloque cosas en este comando \n1-/quelacreo Muestra la version del bot\n2-/stop Detiene las funciones del bot\n\nY... Eso es todo.')
             elif text == '/mememaster':
