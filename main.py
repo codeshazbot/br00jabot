@@ -116,13 +116,15 @@ class WebhookHandler(webapp2.RequestHandler):
             elif text == '/image':
                 img = Image.new('RGB', (512, 512))
                 base = random.randint(0, 16777216)
-                pixels = [base+i*j for i in range(512) for j in range(512)]  # generate sample image
+                pixels = [base+i*j for i in range(512) for j in range(512)]
+                # generate sample image
                 img.putdata(pixels)
                 output = StringIO.StringIO()
                 img.save(output, 'JPEG')
                 reply(img=output.getvalue())
             elif text == '/quelacreo':
-                reply('La version de este bot es ', VERSION) #Revisar, no esta mostrando la version
+                reply('La version de este bot es ', VERSION)
+                #Revisar, no esta mostrando la version
             elif text == '/help':
                 reply ('Buena nueva! Movi el culo y coloque cosas en este comando \n1-/quelacreo Muestra la version del bot\n2-/stop Detiene las funciones del bot\n\nY... Eso es todo.')
             elif text == '/mememaster':
