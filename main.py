@@ -138,7 +138,7 @@ class WebhookHandler(webapp2.RequestHandler):
             #    numero = randint(0,99)
             #    resultado = ('Sacaste: ' + str(numero))
             #    reply(resultado)
-            elif re.search('\/dado', text).I:
+        elif re.search('[/]dado', text, re.IGNORECASE):
                 numero = randint(0,99)
                 resultado = ('Sacaste: ' + str(numero))
                 reply(resultado)
