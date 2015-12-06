@@ -130,12 +130,14 @@ class WebhookHandler(webapp2.RequestHandler):
             elif text == '/quelacreo' or text == '/quelacreo@Br00jaBot':
                 #reply(VERSION) #Fixd
                 reply(''.format())#wat
-            elif text == '/dado' or text == '/dado@Br00jaBot': #Does not work
+            elif text == '/dado' or text == '/dado@Br00jaBot': #Dice fix'd
                 numero = randint(0,99)
-                resultado = 'Sacaste: ', numero
+                resultado = ('Sacaste: ' + str(numero))
                 reply(resultado)
+            elif text == '/changelog' or text == '/changelog@Br00jaBot':
+                reply('Siempre puedes echar un vistazo en https://github.com/codeshazbot/TelegramBots para fijarte que hay de nuevo' + grin)
             elif text == '/help' or text == '/quelacreo@Br00jaBot':
-                reply ('Buena nueva! Movimos el culo y colocamos cosas en este comando \n1-/quelacreo Muestra la version del bot\n2-/stop Detiene las funciones del bot\n3-/gym Muestra una pasta (Por ahora:DDDD)\n\nY... Eso es todo.')
+                reply ('Buena nueva! Movimos el culo y colocamos cosas en este comando \n1-/quelacreo Muestra la version del bot\n2-/stop Detiene las funciones del bot\n3-/gym Muestra una pasta (Por ahora:DDDD)\n4-/dado Tira los dados, obtendras un numero entre 1 y 99\n5-/changelog Te dira que funciones hemos estado agregando tras cada update\n\nY... Eso es todo.')
             elif text == '/gym' or text == '/gym@Br00jaBot': #Eliminada la reply que decia 'pasta incoming'
                 reply('ah pues maldito maricon, debes saber que yo fui al gym maldito comemierda y me la pasaba echandole maltas a los culos de las carajas que estaban ahi mientras me las pegaba y levantaba pesas, tambien se lo mamaba a los otros carajos que estaban ahi que se ponian todos maricos a decirme "ay papi tu si tas bueno" yo les decia "ay vale, maldito maricon de mierda, tu lo que quieres es que te mame el guevo verdad, muchacho marico pelate esa vaina" y se la pelaba y yo le daba, asi que no creas que me voy a cortar contigo maldito marico, que te tengo fichado bruja, becerro, cdtm sapo diablon, MAMAGUEVO, debes saber que de carajito me quedaba con mi mama a amarrar hallacas en la casa asi que se todo sobre defenderme muchacho marico, asi que abre canchas pues, tu crees que me arde el culo? no papa, yo soy experto en aguantar ardor de culo, ya que me meto los dildos de mi mama para estimular mi prostata, tambien lo hago en el gym y las tipas les gusta, asi que habla claro becerro.  Tu quieres que yo te lo mame o que?')
             else:
