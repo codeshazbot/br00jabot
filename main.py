@@ -130,13 +130,13 @@ class WebhookHandler(webapp2.RequestHandler):
             elif text == '/alejandro': #Eliminada la reply que decia 'pasta incoming'
                 reply('ah pues maldito maricon, debes saber que yo fui al gym maldito comemierda y me la pasaba echandole maltas a los culos de las carajas que estaban ahi mientras me las pegaba y levantaba pesas, tambien se lo mamaba a los otros carajos que estaban ahi que se ponian todos maricos a decirme "ay papi tu si tas bueno" yo les decia "ay vale, maldito maricon de mierda, tu lo que quieres es que te mame el guevo verdad, muchacho marico pelate esa vaina" y se la pelaba y yo le daba, asi que no creas que me voy a cortar contigo maldito marico, que te tengo fichado bruja, becerro, cdtm sapo diablon, MAMAGUEVO, debes saber que de carajito me quedaba con mi mama a amarrar hallacas en la casa asi que se todo sobre defenderme muchacho marico, asi que abre canchas pues, tu crees que me arde el culo? no papa, yo soy experto en aguantar ardor de culo, ya que me meto los dildos de mi mama para estimular mi prostata, tambien lo hago en el gym y las tipas les gusta, asi que habla claro becerro.  Tu quieres que yo te lo mame o que?')
             else:
-                reply('Deberia tener ese comando? Maldito mamaguevo') #Fix'd
+                reply('Soy marico y me meto comandos por el culo, lo lamento, ese tambien me lo metí') #Fix'd
 
         # CUSTOM MESSAGES AND FALLBACK ERROR MESSAGES
 
         elif 'no leer' in text: #Erased "else" in order to prevent reply loop
             reply('Los creadores de este bot claramente no saben que es leer')
-        
+
 
 app = webapp2.WSGIApplication([
     ('/me', MeHandler),
