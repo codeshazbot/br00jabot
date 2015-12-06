@@ -138,7 +138,10 @@ class WebhookHandler(webapp2.RequestHandler):
             #    numero = randint(0,99)
             #    resultado = ('Sacaste: ' + str(numero))
             #    reply(resultado)
-        elif re.search('dado', text).I:
+            elif re.search('\/dado', text).I:
+                numero = randint(0,99)
+                resultado = ('Sacaste: ' + str(numero))
+                reply(resultado)
 
             elif text == '/changelog' or text == '/changelog@Br00jaBot':
                 reply('Siempre puedes echar un vistazo en https://github.com/codeshazbot/TelegramBots para fijarte que hay de nuevo' + grin)
