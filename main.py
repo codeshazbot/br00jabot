@@ -4,7 +4,7 @@ import logging
 import random
 import urllib
 import urllib2
-
+from random import randint #Dice
 # for sending images
 from PIL import Image
 import multipart
@@ -14,11 +14,16 @@ from google.appengine.api import urlfetch
 from google.appengine.ext import ndb
 import webapp2
 
-TOKEN = ''
+TOKEN = '<API_TOKEN_HERE>'
 
 BASE_URL = 'https://api.telegram.org/bot' + TOKEN + '/'
 
 VERSION = 'La version de este bot es: 0.420'
+
+# ================================
+#Emoji codes here
+hot = u'\U0001F525'
+grin = u'\U0001F601'
 # ================================
 
 class EnableStatus(ndb.Model):
@@ -107,13 +112,13 @@ class WebhookHandler(webapp2.RequestHandler):
 
         # THE ACTUAL USER INPUT/COMMANDS START HERE
         if text.startswith('/'):
-            if text == '/start':
-                reply('Bienvenido a la experiencia memetica 2.0, quizas debas utilizar /help para conocer mas sobre los comandos.')
+            if text == '/start' or text == '/start@Br00jaBot':
+                reply('Hola, quizas debas utilizar /help para conocer mas sobre los comandos.')
                 setEnabled(chat_id, True)
-            elif text == '/stop':
+            elif text == '/stop' or text == '/stop@Br00jaBot':
                 reply('Oww :(')
                 setEnabled(chat_id, False)
-            elif text == '/image':
+            elif text == '/image' or text == '/image@Br00jaBot':
                 img = Image.new('RGB', (512, 512))
                 base = random.randint(0, 16777216)
                 pixels = [base+i*j for i in range(512) for j in range(512)]
@@ -122,15 +127,19 @@ class WebhookHandler(webapp2.RequestHandler):
                 output = StringIO.StringIO()
                 img.save(output, 'JPEG')
                 reply(img=output.getvalue())
-            elif text == '/quelacreo':
+            elif text == '/quelacreo' or text == '/quelacreo@Br00jaBot':
                 #reply(VERSION) #Fixd
                 reply(''.format())#wat
-            elif text == '/help':
-                reply ('Buena nueva! Movi el culo y coloque cosas en este comando \n1-/quelacreo Muestra la version del bot\n2-/stop Detiene las funciones del bot\n3-/alejandro Muestra una pasta (Por ahora:DDDD)\n\nY... Eso es todo.')
-            elif text == '/alejandro': #Eliminada la reply que decia 'pasta incoming'
+            elif text == '/dado' or text == '/dado@Br00jaBot': #Does not work
+                numero = randint(0,99)
+                resultado = 'Sacaste: ', numero
+                reply(resultado)
+            elif text == '/help' or text == '/quelacreo@Br00jaBot':
+                reply ('Buena nueva! Movimos el culo y colocamos cosas en este comando \n1-/quelacreo Muestra la version del bot\n2-/stop Detiene las funciones del bot\n3-/gym Muestra una pasta (Por ahora:DDDD)\n\nY... Eso es todo.')
+            elif text == '/gym' or text == '/gym@Br00jaBot': #Eliminada la reply que decia 'pasta incoming'
                 reply('ah pues maldito maricon, debes saber que yo fui al gym maldito comemierda y me la pasaba echandole maltas a los culos de las carajas que estaban ahi mientras me las pegaba y levantaba pesas, tambien se lo mamaba a los otros carajos que estaban ahi que se ponian todos maricos a decirme "ay papi tu si tas bueno" yo les decia "ay vale, maldito maricon de mierda, tu lo que quieres es que te mame el guevo verdad, muchacho marico pelate esa vaina" y se la pelaba y yo le daba, asi que no creas que me voy a cortar contigo maldito marico, que te tengo fichado bruja, becerro, cdtm sapo diablon, MAMAGUEVO, debes saber que de carajito me quedaba con mi mama a amarrar hallacas en la casa asi que se todo sobre defenderme muchacho marico, asi que abre canchas pues, tu crees que me arde el culo? no papa, yo soy experto en aguantar ardor de culo, ya que me meto los dildos de mi mama para estimular mi prostata, tambien lo hago en el gym y las tipas les gusta, asi que habla claro becerro.  Tu quieres que yo te lo mame o que?')
             else:
-                reply('Soy marico y me meto comandos por el culo, lo lamento, ese tambien me lo metí') #Fix'd
+                reply('Soy marico y me meto comandos por el culo, lo lamento, ese tambien me lo meti') #Fix'dx2
 
         # CUSTOM MESSAGES AND FALLBACK ERROR MESSAGES
 
