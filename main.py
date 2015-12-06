@@ -123,7 +123,8 @@ class WebhookHandler(webapp2.RequestHandler):
                 img.save(output, 'JPEG')
                 reply(img=output.getvalue())
             elif text == '/quelacreo':
-                reply(VERSION) #Fixd
+                #reply(VERSION) #Fixd
+                reply(''.format())#wat
             elif text == '/help':
                 reply ('Buena nueva! Movi el culo y coloque cosas en este comando \n1-/quelacreo Muestra la version del bot\n2-/stop Detiene las funciones del bot\n\nY... Eso es todo.')
             elif text == '/mememaster':
