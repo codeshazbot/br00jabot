@@ -131,7 +131,7 @@ class WebhookHandler(webapp2.RequestHandler):
                 img.save(output, 'JPEG')
                 reply(img=output.getvalue())
 
-            elif re.search('[/]dado', text, re.IGNORECASE):
+            elif re.search('[/]d[ae]do', text, re.IGNORECASE):
                 numero = randint(0,99)
                 resultado = ('Sacaste: ' + str(numero))
                 reply(resultado)
