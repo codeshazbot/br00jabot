@@ -25,6 +25,7 @@ VERSION = 'La version de este bot es: 0.420'
 #Emoji codes here
 hot = u'\U0001F525'
 grin = u'\U0001F601'
+le_sad = u'\U0001F61E'
 # ================================
 
 class EnableStatus(ndb.Model):
@@ -132,9 +133,16 @@ class WebhookHandler(webapp2.RequestHandler):
                 reply(img=output.getvalue())
 
             elif re.search('[/]d[ae]do', text, re.IGNORECASE):
-                numero = randint(0,99)
+                numero = randint(1,99)
                 resultado = ('Sacaste: ' + str(numero))
                 reply(resultado)
+
+            elif re.search('[/]dobles', text, re.IGNORECASE):
+                num = str(randint(1,99))
+                if re.search('\d{1,2}', num, re.IGNORECASE):
+                    reply('chequealos: ' + num)
+                else:
+                    reply('no hubo dobles ' + le_sad)
 
             elif re.search('[/]changelog', text, re.IGNORECASE):
                 reply('Siempre puedes echar un vistazo en https://github.com/codeshazbot/TelegramBots para fijarte que hay de nuevo' + grin)
