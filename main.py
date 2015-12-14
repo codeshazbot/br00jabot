@@ -14,6 +14,7 @@ from google.appengine.api import urlfetch
 from google.appengine.ext import ndb
 import webapp2
 import re
+from modules import magic_ball
 
 TOKEN = '<API_TOKEN_HERE>'
 
@@ -21,29 +22,8 @@ BASE_URL = 'https://api.telegram.org/bot' + TOKEN + '/'
 
 VERSION = 'La version de este bot es: 0.420'
 
-magicBall = [
-            'En mi opinión, si',
-            'Es cierto',
-            'Es decididamente asi',
-            'Probablemente',
-            'Buen Pronostico',
-            'Todo apunta a que si',
-            'Sin Duda',
-            'Si',
-            'Debes confiar en ello',
-            'Respuesta vaga, vuelve a intentarlo',
-            'Pregunta en otro momento',
-            'Sera mejor que no te lo diga ahora',
-            'No puedo predecirlo ahora',
-            'Concentrate y vuelve a preguntar',
-            'No cuentes con ello',
-            'Mi respuesta es no',
-            'Mis fuentes dicen que no',
-            'Las perspectivas no son buenas',
-            'Muy dudoso'
-            ]
+magicBallRes = random.choice(magic_ball.magicBall)
 
-maginBallRes = random.choice(magicBall)
 # ================================
 #Emoji codes here
 hot = u'\U0001F525'
@@ -178,7 +158,7 @@ class WebhookHandler(webapp2.RequestHandler):
                 reply('ah pues maldito maricon, debes saber que yo fui al gym maldito comemierda y me la pasaba echandole maltas a los culos de las carajas que estaban ahi mientras me las pegaba y levantaba pesas, tambien se lo mamaba a los otros carajos que estaban ahi que se ponian todos maricos a decirme "ay papi tu si tas bueno" yo les decia "ay vale, maldito maricon de mierda, tu lo que quieres es que te mame el guevo verdad, muchacho marico pelate esa vaina" y se la pelaba y yo le daba, asi que no creas que me voy a cortar contigo maldito marico, que te tengo fichado bruja, becerro, cdtm sapo diablon, MAMAGUEVO, debes saber que de carajito me quedaba con mi mama a amarrar hallacas en la casa asi que se todo sobre defenderme muchacho marico, asi que abre canchas pues, tu crees que me arde el culo? no papa, yo soy experto en aguantar ardor de culo, ya que me meto los dildos de mi mama para estimular mi prostata, tambien lo hago en el gym y las tipas les gusta, asi que habla claro becerro.  Tu quieres que yo te lo mame o que?')
 
             elif re.search('[/]bola8', text, re.IGNORECASE):
-                reply(maginBallRes)
+                reply(magicBallRes)
 
             else:
                 reply('Soy marico y me meto comandos por el culo, lo lamento, ese tambien me lo meti')
