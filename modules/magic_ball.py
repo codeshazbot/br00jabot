@@ -1,3 +1,4 @@
+"""This add a magin 8 ball."""
 magicBall = [
             'En mi opinión, si',
             'Es cierto',

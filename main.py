@@ -1,10 +1,12 @@
+"""Telegram Bots."""
 import StringIO
 import json
 import logging
 import random
 import urllib
 import urllib2
-from random import randint #Dice
+# Dice
+from random import randint
 # for sending images
 from PIL import Image
 import multipart
@@ -15,6 +17,7 @@ from google.appengine.ext import ndb
 import webapp2
 import re
 from modules import magic_ball
+from modules import epic_pasta
 
 TOKEN = '<API_TOKEN_HERE>'
 
@@ -23,25 +26,26 @@ BASE_URL = 'https://api.telegram.org/bot' + TOKEN + '/'
 VERSION = 'La version de este bot es: 0.420'
 
 magicBallRes = random.choice(magic_ball.magicBall)
+epicPasta = epic_pasta.getPasta()
 
 # ================================
-#Emoji codes here
+# Emoji codes here
 hot = u'\U0001F525'
 grin = u'\U0001F601'
 le_sad = u'\U0001F61E'
 # ================================
+
 
 class EnableStatus(ndb.Model):
     # key name: str(chat_id)
     enabled = ndb.BooleanProperty(indexed=False, default=False)
 
 
-# ================================
-
 def setEnabled(chat_id, yes):
     es = EnableStatus.get_or_insert(str(chat_id))
     es.enabled = yes
     es.put()
+
 
 def getEnabled(chat_id):
     es = EnableStatus.get_by_id(str(chat_id))
@@ -136,12 +140,12 @@ class WebhookHandler(webapp2.RequestHandler):
                 reply(img=output.getvalue())
 
             elif re.search('[/]d[ae]do', text, re.IGNORECASE):
-                numero = randint(1,99)
+                numero = randint(1, 99)
                 resultado = ('Sacaste: ' + str(numero))
                 reply(resultado)
 
             elif re.search('[/]dobles', text, re.IGNORECASE):
-                num = str(randint(1,99))
+                num = str(randint(1, 99))
                 if re.search('\d{1,2}', num, re.IGNORECASE):
                     reply('chequealos: ' + num)
                 else:
@@ -159,6 +163,9 @@ class WebhookHandler(webapp2.RequestHandler):
 
             elif re.search('[/]bola8', text, re.IGNORECASE):
                 reply(magicBallRes)
+
+            elif re.search('[/]pasta', text, re.IGNORECASE):
+                reply(epicPasta)
 
             else:
                 reply('Soy marico y me meto comandos por el culo, lo lamento, ese tambien me lo meti')

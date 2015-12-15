@@ -1,3 +1,6 @@
+## 15/12/2015
+Added epic_pasta module
+
 ## 01/12/2015
 
 Added `modules` and `lib`.
