@@ -21,16 +21,15 @@ TOKEN = '<API_TOKEN_HERE>'
 
 BASE_URL = 'https://api.telegram.org/bot' + TOKEN + '/'
 
-VERSION = 'La version de este bot es: 0.420'
+VERSION = 'La version de este bot es: 0.49999 (Implemented 8Ball, Epic Pastas, another stuff, see /changelog for more details'
 
-magicBallRes = random.choice(magic_ball.magicBall)
-epicPasta = epic_pasta.getPasta()
 
 # ================================
 # Emoji codes here
 hot = u'\U0001F525'
 grin = u'\U0001F601'
 le_sad = u'\U0001F61E'
+
 # ================================
 
 
@@ -159,10 +158,12 @@ class WebhookHandler(webapp2.RequestHandler):
                 #This will soon be deprecated
                 reply('ah pues maldito maricon, debes saber que yo fui al gym maldito comemierda y me la pasaba echandole maltas a los culos de las carajas que estaban ahi mientras me las pegaba y levantaba pesas, tambien se lo mamaba a los otros carajos que estaban ahi que se ponian todos maricos a decirme "ay papi tu si tas bueno" yo les decia "ay vale, maldito maricon de mierda, tu lo que quieres es que te mame el guevo verdad, muchacho marico pelate esa vaina" y se la pelaba y yo le daba, asi que no creas que me voy a cortar contigo maldito marico, que te tengo fichado bruja, becerro, cdtm sapo diablon, MAMAGUEVO, debes saber que de carajito me quedaba con mi mama a amarrar hallacas en la casa asi que se todo sobre defenderme muchacho marico, asi que abre canchas pues, tu crees que me arde el culo? no papa, yo soy experto en aguantar ardor de culo, ya que me meto los dildos de mi mama para estimular mi prostata, tambien lo hago en el gym y las tipas les gusta, asi que habla claro becerro.  Tu quieres que yo te lo mame o que?')
 
-            elif re.search('[/]bola8', text, re.IGNORECASE):
+            elif re.search('[/]caracola', text, re.IGNORECASE):
+                magicBallRes = random.choice(magic_ball.magicBall) #Moved
                 reply(magicBallRes)
 
             elif re.search('[/]pasta', text, re.IGNORECASE):
+                epicPasta = epic_pasta.getPasta() #Moved
                 reply(epicPasta)
 
             else:
