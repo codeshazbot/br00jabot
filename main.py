@@ -158,7 +158,7 @@ class WebhookHandler(webapp2.RequestHandler):
 
             elif re.search('[/]dobles', text, re.IGNORECASE):
                 num = random.randint(1, 99)
-                if num % 11:
+                if num % 11 == 0:
                     reply('chequealos: ' + str(num))
                 else:
                     reply('no hubo dobles ' + le_sad)
