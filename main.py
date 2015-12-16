@@ -17,11 +17,11 @@ import re
 from modules import magic_ball
 from modules import epic_pasta
 
-TOKEN = '<API_TOKEN_HERE>'
+TOKEN = '161194968:AAH7RsxCmcXTipp5k3HSct-f7LuWHVVwqXw'
 
 BASE_URL = 'https://api.telegram.org/bot' + TOKEN + '/'
 
-VERSION = 'La version de este bot es: 0.49999 (Implemented 8Ball, Epic Pastas, another stuff, see /changelog for more details'
+VERSION = 'La version de este bot es: 0.501 (Implemented 8Ball, Epic Pastas (Disabled by now), another stuff, see /changelog for more details'
 
 
 # ================================
@@ -29,7 +29,10 @@ VERSION = 'La version de este bot es: 0.49999 (Implemented 8Ball, Epic Pastas, a
 hot = u'\U0001F525'
 grin = u'\U0001F601'
 le_sad = u'\U0001F61E'
-
+dice = u'\U0001F3B2'
+black = u'\U0001F532'
+white = u'\U0001F533'
+green_heart = u'\U0001F49A'
 # ================================
 
 
@@ -138,8 +141,20 @@ class WebhookHandler(webapp2.RequestHandler):
 
             elif re.search('[/]d[ae]do', text, re.IGNORECASE):
                 numero = random.randint(1, 99)
-                resultado = ('Sacaste: ' + str(numero))
+                resultado = ( dice + 'Sacaste: ' + str(numero))
                 reply(resultado)
+
+            elif re.search('[/]ruleta', text, re.IGNORECASE):
+                ruleta = random.randint(0, 15)
+                if ruleta == 0:
+                    result = (green_heart + ' Sacaste: ' + str(ruleta))
+                    reply(result)
+                elif ruleta%2 == 0:
+                    result = (black+' Sacaste: '+ str(ruleta))
+                    reply(result)
+                else:
+                    result = (white+' Sacaste: '+ str(ruleta))
+                    reply(result)
 
             elif re.search('[/]dobles', text, re.IGNORECASE):
                 num = str(random.randint(1, 99))
@@ -153,7 +168,7 @@ class WebhookHandler(webapp2.RequestHandler):
 
             elif re.search('[/]ayura | [/]quelacreo', text, re.IGNORECASE):
                 reply ('Buena nueva! Movimos el culo y colocamos cosas en este comando \n1-/quelacreo Muestra la version del bot\n2-/stop Detiene las funciones del bot\n3-/gym Muestra una pasta (Por ahora:DDDD)\n4-/dado Tira los dados, obtendras un numero entre 1 y 99\n5-/changelog Te dira que funciones hemos estado agregando tras cada update\n\nY... Eso es todo.')
-
+                reply(VERSION)
             elif re.search('[/]gym', text, re.IGNORECASE):
                 #This will soon be deprecated
                 reply('ah pues maldito maricon, debes saber que yo fui al gym maldito comemierda y me la pasaba echandole maltas a los culos de las carajas que estaban ahi mientras me las pegaba y levantaba pesas, tambien se lo mamaba a los otros carajos que estaban ahi que se ponian todos maricos a decirme "ay papi tu si tas bueno" yo les decia "ay vale, maldito maricon de mierda, tu lo que quieres es que te mame el guevo verdad, muchacho marico pelate esa vaina" y se la pelaba y yo le daba, asi que no creas que me voy a cortar contigo maldito marico, que te tengo fichado bruja, becerro, cdtm sapo diablon, MAMAGUEVO, debes saber que de carajito me quedaba con mi mama a amarrar hallacas en la casa asi que se todo sobre defenderme muchacho marico, asi que abre canchas pues, tu crees que me arde el culo? no papa, yo soy experto en aguantar ardor de culo, ya que me meto los dildos de mi mama para estimular mi prostata, tambien lo hago en el gym y las tipas les gusta, asi que habla claro becerro.  Tu quieres que yo te lo mame o que?')
@@ -162,16 +177,16 @@ class WebhookHandler(webapp2.RequestHandler):
                 magicBallRes = random.choice(magic_ball.magicBall) #Moved
                 reply(magicBallRes)
 
-            elif re.search('[/]pasta', text, re.IGNORECASE):
-                epicPasta = epic_pasta.getPasta() #Moved
-                reply(epicPasta)
+            #elif re.search('[/]pasta', text, re.IGNORECASE):
+                #epicPasta = epic_pasta.getPasta() #Moved
+                #reply(epicPasta)
 
             else:
                 reply('Soy marico y me meto comandos por el culo, lo lamento, ese tambien me lo meti')
 
         # CUSTOM MESSAGES AND FALLBACK ERROR MESSAGES
 
-    elif re.search('\sno leer\s', text, re.IGNORECASE):
+        elif re.search('\sno leer\s', text, re.IGNORECASE):
             reply('Los creadores de este bot claramente no saben que es leer')
 
 

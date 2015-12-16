@@ -4,7 +4,7 @@ import random
 import json
 
 # load epic pasta from json file
-jsonMeme = json.loads(open('../memes.json').read())
+#jsonMeme = json.loads(open('../memes.json').read())
 
 
 def getPasta():
