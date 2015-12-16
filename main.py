@@ -157,16 +157,16 @@ class WebhookHandler(webapp2.RequestHandler):
                     reply(result)
 
             elif re.search('[/]dobles', text, re.IGNORECASE):
-                num = str(random.randint(1, 99))
-                if re.search('\d{1,2}', num, re.IGNORECASE):
-                    reply('chequealos: ' + num)
+                num = random.randint(1, 99)
+                if num % 11:
+                    reply('chequealos: ' + str(num))
                 else:
                     reply('no hubo dobles ' + le_sad)
 
             elif re.search('[/]changelog', text, re.IGNORECASE):
                 reply('Siempre puedes echar un vistazo en https://github.com/codeshazbot/TelegramBots para fijarte que hay de nuevo' + grin)
 
-            elif re.search('[/]ayura | [/]quelacreo', text, re.IGNORECASE):
+            elif re.search('[/]ayura', text, re.IGNORECASE):
                 reply ('Buena nueva! Movimos el culo y colocamos cosas en este comando \n1-/quelacreo Muestra la version del bot\n2-/stop Detiene las funciones del bot\n3-/gym Muestra una pasta (Por ahora:DDDD)\n4-/dado Tira los dados, obtendras un numero entre 1 y 99\n5-/changelog Te dira que funciones hemos estado agregando tras cada update\n\nY... Eso es todo.')
                 reply(VERSION)
             elif re.search('[/]gym', text, re.IGNORECASE):
