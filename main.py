@@ -5,8 +5,6 @@ import logging
 import random
 import urllib
 import urllib2
-# Dice
-from random import randint
 # for sending images
 from PIL import Image
 import multipart
@@ -140,12 +138,12 @@ class WebhookHandler(webapp2.RequestHandler):
                 reply(img=output.getvalue())
 
             elif re.search('[/]d[ae]do', text, re.IGNORECASE):
-                numero = randint(1, 99)
+                numero = random.randint(1, 99)
                 resultado = ('Sacaste: ' + str(numero))
                 reply(resultado)
 
             elif re.search('[/]dobles', text, re.IGNORECASE):
-                num = str(randint(1, 99))
+                num = str(random.randint(1, 99))
                 if re.search('\d{1,2}', num, re.IGNORECASE):
                     reply('chequealos: ' + num)
                 else:
