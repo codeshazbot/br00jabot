@@ -2,9 +2,12 @@
 
 import random
 import json
+import urllib
 
 # load epic pasta from json file
-#jsonMeme = json.loads(open('../memes.json').read())
+url = 'https://api.myjson.com/bins/4uxpd'
+response = urllib.urlopen(url)
+jsonMeme = json.load(response)
 
 
 def getPasta():
