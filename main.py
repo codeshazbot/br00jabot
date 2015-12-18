@@ -17,7 +17,7 @@ import re
 from modules import magic_ball
 from modules import epic_pasta
 
-TOKEN = '161194968:AAH7RsxCmcXTipp5k3HSct-f7LuWHVVwqXw'
+TOKEN = ''
 
 BASE_URL = 'https://api.telegram.org/bot' + TOKEN + '/'
 
@@ -139,7 +139,7 @@ class WebhookHandler(webapp2.RequestHandler):
                 img.save(output, 'JPEG')
                 reply(img=output.getvalue())
 
-            elif re.search('[/]d[ae]do', text, re.IGNORECASE):
+            elif re.search('[/]d[ae]do | [/]reroll', text, re.IGNORECASE): #Reroll just in case
                 numero = random.randint(1, 99)
                 resultado = ( dice + 'Sacaste: ' + str(numero))
                 reply(resultado)
