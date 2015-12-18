@@ -21,7 +21,7 @@ TOKEN = ''
 
 BASE_URL = 'https://api.telegram.org/bot' + TOKEN + '/'
 
-VERSION = 'La version de este bot es: 0.501 (Implemented 8Ball, Epic Pastas (Disabled by now), another stuff, see /changelog for more details'
+VERSION = 'La version de este bot es: 0.502 (Implemented caracola*, Epic Pastas, another stuff, see /changelog for more details'
 
 
 # ================================
@@ -30,8 +30,8 @@ hot = u'\U0001F525'
 grin = u'\U0001F601'
 le_sad = u'\U0001F61E'
 dice = u'\U0001F3B2'
-black = u'\U0001F532'
-white = u'\U0001F533'
+black = u'\U000026AB'
+red = u'\U0001F534' # Fixed, is red, not white kek.
 green_heart = u'\U0001F49A'
 # ================================
 
@@ -153,7 +153,7 @@ class WebhookHandler(webapp2.RequestHandler):
                     result = (black+' Sacaste: '+ str(ruleta))
                     reply(result)
                 else:
-                    result = (white+' Sacaste: '+ str(ruleta))
+                    result = (red+' Sacaste: '+ str(ruleta))
                     reply(result)
 
             elif re.search('[/]dobles', text, re.IGNORECASE):
