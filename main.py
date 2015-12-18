@@ -177,9 +177,9 @@ class WebhookHandler(webapp2.RequestHandler):
                 magicBallRes = random.choice(magic_ball.magicBall) #Moved
                 reply(magicBallRes)
 
-            #elif re.search('[/]pasta', text, re.IGNORECASE):
-                #epicPasta = epic_pasta.getPasta() #Moved
-                #reply(epicPasta)
+            elif re.search('[/]pasta', text, re.IGNORECASE):
+                epicPasta = epic_pasta.getPasta()
+                reply(epicPasta)
 
             else:
                 reply('Soy marico y me meto comandos por el culo, lo lamento, ese tambien me lo meti')
