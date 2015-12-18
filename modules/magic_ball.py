@@ -14,9 +14,12 @@ magicBall = [
             'Sera mejor que no te lo diga ahora',
             'No puedo predecirlo ahora',
             'Concentrate y vuelve a preguntar',
-            'No cuentes con ello',
+            'No vale yo no creo',
             'Mi respuesta es no',
             'Mis fuentes dicen que no',
             'Las perspectivas no son buenas',
-            'Muy dudoso'
+            'El tiempo de Dios es perfecto',
+            'Pero tenemos patria',
+            'Pero tenemos cambio',
+            'dude weed lmao'
             ]
