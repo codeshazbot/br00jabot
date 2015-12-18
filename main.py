@@ -17,7 +17,7 @@ import re
 from modules import magic_ball
 from modules import epic_pasta
 
-TOKEN = ''
+TOKEN = '161194968:AAH7RsxCmcXTipp5k3HSct-f7LuWHVVwqXw'
 
 BASE_URL = 'https://api.telegram.org/bot' + TOKEN + '/'
 

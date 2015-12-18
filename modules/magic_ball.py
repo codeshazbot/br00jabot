@@ -18,8 +18,5 @@ magicBall = [
             'Mi respuesta es no',
             'Mis fuentes dicen que no',
             'Las perspectivas no son buenas',
-            'El tiempo de Dios es perfecto',
-            'Pero tenemos patria',
-            'Pero tenemos cambio',
-            'dude weed lmao'
+            'El tiempo de Dios es perfecto'
             ]
