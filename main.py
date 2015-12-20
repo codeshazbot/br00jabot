@@ -16,8 +16,12 @@ import webapp2
 import re
 from modules import magic_ball
 from modules import epic_pasta
+from modules import secretStuff
 
-TOKEN = ''
+
+API = secretStuff.getApiJson()
+
+TOKEN = API
 
 BASE_URL = 'https://api.telegram.org/bot' + TOKEN + '/'
 
