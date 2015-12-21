@@ -25,7 +25,7 @@ TOKEN = API
 
 BASE_URL = 'https://api.telegram.org/bot' + TOKEN + '/'
 
-VERSION = 'La version de este bot es: 0.502 (Implemented caracola*, Epic Pastas, another stuff, see /changelog for more details'
+VERSION = 'La version de este bot es: 0.503, secret stuff and fixed minor shit'
 
 
 # ================================
@@ -35,7 +35,7 @@ grin = u'\U0001F601'
 le_sad = u'\U0001F61E'
 dice = u'\U0001F3B2'
 black = u'\U000026AB'
-red = u'\U0001F534' # Fixed, is red, not white kek.
+red = u'\U0001F534' 
 green_heart = u'\U0001F49A'
 # ================================
 
@@ -170,15 +170,12 @@ class WebhookHandler(webapp2.RequestHandler):
             elif re.search('[/]changelog', text, re.IGNORECASE):
                 reply('Siempre puedes echar un vistazo en https://github.com/codeshazbot/TelegramBots para fijarte que hay de nuevo' + grin)
 
-            elif re.search('[/]ayura', text, re.IGNORECASE):
+            elif re.search('[/]help', text, re.IGNORECASE): #I need to change some things in commands.doc in telegram
                 reply ('Buena nueva! Movimos el culo y colocamos cosas en este comando \n1-/quelacreo Muestra la version del bot\n2-/stop Detiene las funciones del bot\n3-/gym Muestra una pasta (Por ahora:DDDD)\n4-/dado Tira los dados, obtendras un numero entre 1 y 99\n5-/changelog Te dira que funciones hemos estado agregando tras cada update\n\nY... Eso es todo.')
                 reply(VERSION)
-            elif re.search('[/]gym', text, re.IGNORECASE):
-                #This will soon be deprecated
-                reply('ah pues maldito maricon, debes saber que yo fui al gym maldito comemierda y me la pasaba echandole maltas a los culos de las carajas que estaban ahi mientras me las pegaba y levantaba pesas, tambien se lo mamaba a los otros carajos que estaban ahi que se ponian todos maricos a decirme "ay papi tu si tas bueno" yo les decia "ay vale, maldito maricon de mierda, tu lo que quieres es que te mame el guevo verdad, muchacho marico pelate esa vaina" y se la pelaba y yo le daba, asi que no creas que me voy a cortar contigo maldito marico, que te tengo fichado bruja, becerro, cdtm sapo diablon, MAMAGUEVO, debes saber que de carajito me quedaba con mi mama a amarrar hallacas en la casa asi que se todo sobre defenderme muchacho marico, asi que abre canchas pues, tu crees que me arde el culo? no papa, yo soy experto en aguantar ardor de culo, ya que me meto los dildos de mi mama para estimular mi prostata, tambien lo hago en el gym y las tipas les gusta, asi que habla claro becerro.  Tu quieres que yo te lo mame o que?')
 
             elif re.search('[/]caracola', text, re.IGNORECASE):
-                magicBallRes = random.choice(magic_ball.magicBall) #Moved
+                magicBallRes = random.choice(magic_ball.magicBall)
                 reply(magicBallRes)
 
             elif re.search('[/]pasta', text, re.IGNORECASE):
