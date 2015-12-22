@@ -131,7 +131,7 @@ class WebhookHandler(webapp2.RequestHandler):
 
             elif re.search('[/]stop', text, re.IGNORECASE):
                 reply('https://youtu.be/ZwI02OHtZTg')
-                setEnabled(chat_id, True)
+                setEnabled(chat_id, True)#i changed this to true
 
             elif re.search('[/]image', text, re.IGNORECASE):
                 img = Image.new('RGB', (512, 512))
