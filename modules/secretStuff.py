@@ -7,6 +7,8 @@ getJson = json.load(response)
 
 def getApiJson():
     apiToken = []
+    tokenQuickFix = ''
     for key in getJson:
         apiToken.append(key['api'])
-    return apiToken
+    tokenQuickFix = apiToken
+    return tokenQuickFix
