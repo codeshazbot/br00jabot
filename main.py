@@ -35,7 +35,7 @@ grin = u'\U0001F601'
 le_sad = u'\U0001F61E'
 dice = u'\U0001F3B2'
 black = u'\U000026AB'
-red = u'\U0001F534' 
+red = u'\U0001F534'
 green_heart = u'\U0001F49A'
 # ================================
 
@@ -131,7 +131,7 @@ class WebhookHandler(webapp2.RequestHandler):
 
             elif re.search('[/]stop', text, re.IGNORECASE):
                 reply('https://youtu.be/ZwI02OHtZTg')
-                setEnabled(chat_id, False)
+                setEnabled(chat_id, True)
 
             elif re.search('[/]image', text, re.IGNORECASE):
                 img = Image.new('RGB', (512, 512))
